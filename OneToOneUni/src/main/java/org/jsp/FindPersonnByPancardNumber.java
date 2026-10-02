@@ -1,0 +1,23 @@
+package org.jsp;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import java.util.Scanner;
+
+import static javax.persistence.Persistence.createEntityManagerFactory;
+
+public class FindPersonnByPancardNumber {
+    static void main(String[] args) {
+        EntityManagerFactory emf= createEntityManagerFactory("dev");
+        EntityManager em= emf.createEntityManager();
+        System.out.println("enter the pancard Number ");
+        String key=new Scanner(System.in).next();
+        Query q=em.createQuery("select p from Person p where p.card.panNo=?1");
+        q.setParameter(1,key);
+        Person p=(Person)q.getSingleResult();
+        if(p!=null){
+            System.out.println(p);
+        }
+    }
+}

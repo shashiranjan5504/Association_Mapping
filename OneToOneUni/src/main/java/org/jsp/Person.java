@@ -26,9 +26,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "card=" + card +
-                ", id=" + id +
+        return "Person{id=" + id +
                 ", name='" + name + '\'' +
                 ", phoneNo=" + phoneNo +
                 '}';
